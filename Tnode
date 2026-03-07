@@ -1,0 +1,160 @@
+import java.util.LinkedList;
+
+import java.util.Queue;
+
+
+
+
+class Tnode{
+
+	int data;
+
+	Tnode left;
+
+	Tnode right;
+
+	Tnode(int value){
+
+		data=value;
+
+	}
+
+}
+
+class Basic {
+
+		void inorder(Tnode root) {
+
+			if(root==null)return;
+
+			inorder(root.left);
+
+			System.out.println(root.data);
+
+			inorder(root.right);
+
+		}
+
+		void preorder(Tnode root) {
+
+			if(root==null)return;
+
+			System.out.println(root.data);
+
+			preorder(root.left);
+
+			preorder(root.right);
+
+		}
+
+		void postorder(Tnode root) {
+
+			if(root==null)return;
+
+			postorder(root.left);
+
+			postorder(root.right);
+
+			System.out.println(root.data);
+
+		}
+
+		void level(Tnode root) {
+
+			if(root==null)return;
+
+			Queue<Tnode> t = new LinkedList<>();
+
+			t.offer(root);
+
+			while(!t.isEmpty()) {
+
+				Tnode temp = t.poll();
+
+
+
+
+				System.out.println(temp.data);
+
+				if(temp.left!=null)
+
+					t.offer(temp.left);
+
+				if(temp.right!=null)
+
+					t.offer(temp.right);
+
+			}
+
+		}
+
+		Tnode build(Integer Arr[],int index) {
+
+
+
+
+			if(index >=Arr.length ) {
+
+				return null;
+
+			}
+
+			Tnode root = new Tnode(Arr[index]);// 10,20,40
+
+			root.left= build(Arr,2*index +1);// 1 3
+
+			root.right= build(Arr,2*index +2);//
+
+			return root;
+
+		}
+
+	public static void main(String[] args) {
+
+		Basic ob = new Basic();
+
+		Integer arr[] = new Integer[5];
+
+		arr[0]=10;
+
+		arr[1]=20;
+
+		arr[2]=30;
+
+		arr[3]=40;
+
+		arr[4]=50;
+
+		Integer Arr[] = {10,20,30,40,50};
+
+		Tnode root = ob.build(Arr, 0);
+
+
+
+
+//		Tnode root = new Tnode(10);
+
+//		root.left=new Tnode(20);
+
+//		root.right=new Tnode(30);
+
+//		root.left.left = new Tnode(40);
+
+//		root.left.right = new Tnode(50);
+
+//		ob.inorder(root);
+
+//		ob.preorder(root);
+
+//		ob.postorder(root);
+
+		ob.level(root);
+
+
+
+
+	}
+
+}
+
+
