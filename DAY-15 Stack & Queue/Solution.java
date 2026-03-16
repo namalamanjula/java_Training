@@ -143,18 +143,18 @@
 
 
 
-//class Solution{
-//     int rec(int num){
-//         if(num==1){
-//             return 1;
-//             }
-//             return num*rec(num-1);
-//     }
-//     public static void main(String[] args)
-//     {
-//         Solution ob=new Solution();
-//         System.out.println(ob.rec(5));
-//     }
-// }
+class Solution{
+    int rec(int num){
+        if(num==1){
+            return 1;
+            }
+            return num*rec(num-1);
+    }
+    public static void main(String[] args)
+    {
+        Solution ob=new Solution();
+        System.out.println(ob.rec(5));
+    }
+}
 
 
